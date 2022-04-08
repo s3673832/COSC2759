@@ -1,0 +1,22 @@
+<%- include('partials/header.ejs') -%>
+<div id="search" class="container jumbotron">
+    <div class="row justify-content-center">
+        <form action="/note" method="GET" class="form-inline">
+            <input name="noteTitle" class="form-control form-control-lg mr-sm-2" type="search"
+                placeholder="Search your Note" aria-label="Search">
+            <button class="btn btn-lg btn-outline-success my-5 my-sm-5" type="submit"><span
+                    class="glyphicon glyphicon-search"></span> Search</button>
+        </form>
+    </div>
+    <% if(!notes.length && flag){%>
+    <div class="row justify-content-center">
+        <h1 class="text-danger">no matching Note found</h1class=>
+    </div>
+    <%}%>
+</div>
+
+<% if(notes.length) { %>
+    <%- include('partials/table.ejs') -%>
+<% } %>
+    
+<%- include('partials/footer.ejs') -%>
